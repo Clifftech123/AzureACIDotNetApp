@@ -1,0 +1,35 @@
+name: run_docker_push_acr
+
+on:
+  push:
+    branches:
+      - main
+
+# Jobs
+jobs:
+  run_docker_push_acr: 
+    name: "Run docker build and push to ACR"
+    runs-on: ubuntu-latest 
+    environment: production
+
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+    - name: "Checkout repository"
+      uses: actions/checkout@v4
+    - name: "Azure login"
+      uses: azure/docker-login@v1
+      with:
+        login-server: ${{ secrets.REGISTRY_LOGIN_SERVER}}
+        username: ${{ secrets.REGISTRY_USERNAME}}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
+
+    # build and push docker image
+    - name: "Build and push docker image"
+      uses: docker/build-push-action@v5
+      with:
+        push: true
+        tags: ${{ secrets.REGISTRY_LOGIN_SERVER }}/azureacidotnetapp:${{ github.sha }}
+        file: AzureACIDotNetApp/Dockerfile
