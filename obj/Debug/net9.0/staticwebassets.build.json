@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "B0i/ceWrtR/MBJIITBz8++JmWAIS12i9reYXtWU4lEI=",
+  "Source": "AzureACIDotNetApp",
+  "BasePath": "_content/AzureACIDotNetApp",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
