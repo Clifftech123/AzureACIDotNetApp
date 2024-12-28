@@ -32,4 +32,4 @@ jobs:
       with:
         push: true
         tags: ${{ secrets.REGISTRY_LOGIN_SERVER }}/azureacidotnetapp:${{ github.sha }}
-        file: AzureACIDotNetApp/Dockerfile
+        file: ./Dockerfile
